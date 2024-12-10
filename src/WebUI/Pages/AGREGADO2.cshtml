@@ -1,0 +1,28 @@
+@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@functions
+{
+    double perimetro;
+    double area;
+    double volumen;
+
+    public void OnPost(double lado, double altura)
+    {
+        perimetro = Application.Triangulo.Perimetro(lado);
+        area = Application.Triangulo.Area(lado);
+        volumen = Application.PrismaTriangular.Volumen(area, altura);
+    }
+}
+
+<h1>
+    Calculadora de Área y Perímetro del Cuadrado; y Volumen de Prisma Cuadrangular
+</h1>
+
+<form method="Post">
+    Dame el lado: <input type="number" name="lado" step="0.01">
+    <br>
+    Dame la altura: <input type="number" name="altura" step="0.01">
+    <br>
+    <button>Calcular</button>
+</form>
